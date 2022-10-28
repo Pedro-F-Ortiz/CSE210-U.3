@@ -30,19 +30,18 @@ namespace Unit03.Game
 
         private bool letterMatch;
 
-        
-        private int letterMatchHH;          // created this new variable
-
-        public List<char> hint = new List<char> { };
-=======
-
         private int letterMatchHH; // created this new variable
+        public bool isPlaying = true;
+        TerminalService terminalService = new TerminalService();
 
+        public Jumper() { }
 
-            letterMatchHH = wordInstance.letterMatchHH;
-            hint = wordInstance.hint;
-            if(letterMatchHH == 0)
+        public void updateJumper(Word word)
+        {
+            //letterMatch = word.letterMatch;
+            letterMatchHH = word.letterMatchHH;
 
+            if (letterMatchHH == 0)
             {
                 lives = lives - 1;
                 if (lives > 0)
@@ -53,34 +52,10 @@ namespace Unit03.Game
                 {
                     drawing = deadDrawing;
                     isPlaying = false;
-                    terminalService.displayString(drawing);
-                    return;
                 }
             }
-    
+
             terminalService.displayString(drawing);
-
-
-            int counter = 0;
-            foreach (char i in hint)
-            {
-
-                if ('_' == i)
-                {
-                    isPlaying = true;
-                    
-                }
-                else
-                {
-                    counter++;
-                }  
-            }
-
-            if (counter == 5)
-            {
-                isPlaying = false;
-            }
-
         }
     }
 }

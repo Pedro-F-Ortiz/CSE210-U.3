@@ -35,13 +35,11 @@ namespace Unit03.Game
         public void doUpdates()
         {
             jumper.updateJumper(word);
-            //isPlaying = word.checkPlaying();
         }
 
         public void getRender()
         {
             isPlaying = jumper.isPlaying;
-            
             if (!isPlaying)
             {
                 return;
