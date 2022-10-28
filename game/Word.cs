@@ -237,7 +237,7 @@ namespace Unit03.Game
             int index = random.Next(words.Count);
             word = words[index];
 
-            System.Console.WriteLine(word);
+            //System.Console.WriteLine(word);
 
             createHint();
             terminalService.displaycharList(hint);
